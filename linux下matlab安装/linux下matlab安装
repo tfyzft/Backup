@@ -1,0 +1,89 @@
+# Matlab安装
+镜像下载地址
+链接：https://pan.baidu.com/s/1FU1pi9E3o5lq3iVBNi4MgA，提取码:a3xy
+列出下面用到的三个目录：
+
+>解压后的破解文件夹：`～/Documtents/Matlab 2016b Linux64 Crack`
+镜像挂载目录：`/media/matlab`
+Matlab安装目录：`/usr/local/MATLAB/R2016b`
+## 一、安装Matlab
+先挂载第一个dvd1镜像：
+>`sudo  mkdir /media/matlab`
+`mount -o loop *dvd1.iso /media/matlab`
+ 
+ 一定要回到`/home`目录进行下面操作，否则会报错：
+ >`cd  /home`
+` sudo /media/matlab/install`
+ 
+ 进入安装界面：
+ 
+ &#8195; ![1](./1.png) 
+ 
+  选择第一个，填入：`09806-07443-53955-64350-21751-41297`,这个代码在破解文件夹的`readme.txt`中可以找到.
+  
+  &#8195; ![2](./2.png)
+  
+  选择安装文件夹：
+  
+  &#8195; ![3](./3.png)
+  
+  选择安装内容，全选：
+  
+ &#8195; ![4](./4.png)
+ 
+ 然后点击`Enter`开始安装，dvd1安装完毕之后会提示你插入dvd2：
+ 
+ &#8195; ![5](./5.png)
+ 
+这时，用`Ctrl+Alt+T`再打开一个终端，挂载dvd2：
+>sudo mount -o loop ~/Documents/R2016b_glnxa64_dvd2.iso /media/matlab
+ 
+ 再点击这个`OK`，即可继续进行安装。
+ 安装完成之后，出现这个：
+
+ &#8195; ![6](./6.png)
+ 
+ 点击`Next`，然后：
+ 
+ &#8195; ![7](./7.png)
+ 
+ 结束安装。
+ 
+## 二、破解
+要先对安装文件的权限进行处理，否则后面会出现权限不足的问题：
+>cd  ~/Documents/Matlab 2016b Linux64 Crack/
+sudo chmod 777 license_standalone.lic
+
+>cd  /usr/local/MATLAB/
+sudo chmod 777 R2016b/
+
+然后开始激活。进入安装的文件下的`bin`目录下运行激活程序：
+>cd  /usr/local/MATLAB/R2016b/bin
+./activate_matlab.sh
+
+选择不联网激活：
+
+ &#8195; ![8](./8.png)
+ 
+ 将下载的破解压缩文件解压到`~/Documents`，选择破解文件夹中的`license_standalone.lic`文件：
+ 
+ &#8195; ![9](./9.png)
+ 
+ 激活成功：
+ 
+ &#8195; ![10](./10.png)
+ 
+激活成功后，还需要进行一些文件的替换。将破解文件夹中的四个.so文件复制到安装文件夹的glnxa64中：
+>cd ~/Documets/Matlab 2016b Linux64 Crack/R2016b/bin/glnxa64/
+sudo cp *so* /usr/local/MATLAB/R2016b/bin/glnxa64/
+
+现在可以运行Matlab了：
+>cd usr/local/MATLAB/R2016b/bin/
+./matlab
+
+可以将其加入系统环境变量：
+>export MATLAB_HOOME="/usr/local/MATLAB/R2016b"
+export PATH="$PATH:$MATLAB_HOME:/bin"
+source /etc/profile
+
+加入环境变量后，只需要在终端上输入matlab即可启动。
