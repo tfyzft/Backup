@@ -1,0 +1,2 @@
+CSDN介绍:https://blog.csdn.net/gh13uy2ql0N5/article/details/78150266
+NIH Dataset:https://nihcc.app.box.com/v/ChestXray-NIHCC
